@@ -2,13 +2,11 @@ Package: termux-user-fix
 Version: 1.0
 Architecture: aarch64
 Maintainer: None
-Description: Fixes the displayed user and group name.
-To use you have to put the library path into the LD_PRELOAD environment variable.
-The best way to do this is to put 'export LD_PRELOAD="/data/data/com.termux/files/usr/lib/libfixuser.so:$LD_PRELOAD"' in your .bash_profile or .bashrc.
+Description: Fixes the displayed user and group name. To use you have to put the library path into the LD_PRELOAD environment variable. The best way to do this is to put 'export LD_PRELOAD="/data/data/com.termux/files/usr/lib/libfixuser.so:$LD_PRELOAD"' in your .bash_profile or .bashrc.
 Filename: dists/termux/extras/binary-aarch64/termux-user-fix_1.0_aarch64.deb
-Size: 2684
-MD5Sum: aaa53820e233e4b65f8e60be53ab70a0
-SHA1: 1c806d1a31394849e9bffb843d19337928f082d3
-SHA256: 75ac9ba2dd1be68d850e87f0783abfe66c0286cd4106dc38dc9cac321393013e
-SHA512: 298bb4727be8d3ae7e4d6fd46dd90176c68f8fa0b9e27b14156c1110bf5d195c64a26fb9ad085aa5f93b4f38468806f64ac4f2cb35405bc98bbcd18fd5fcb093
+Size: 2676
+MD5Sum: b7c81cbb17e06aa730c91d434af1aae6
+SHA1: 8b702da1f9c4e3093cfe9ee936f57f2f6b8193e0
+SHA256: 34c5a003b579d9de05cd4ff34fefb2ecd4a86bb6a537f633b7eb89f8af69c9ac
+SHA512: 5a67046145ef3271caec51d4a58103023dc84da3cc0efb7f6747f45a0343a32bdcdef53a45d65be83074ebb24ecd601b6a4711c9e1052c0e7d380d499f4da050
 
