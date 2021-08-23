@@ -6,31 +6,31 @@ Version: 1
 Architectures: aarch64
 Description: termux repository
 Suite: termux
-Date: Mon, 23 Aug 2021 17:46:24 UTC
+Date: Mon, 23 Aug 2021 18:44:59 UTC
 MD5Sum:
  fa8e5a9ee39a4401331e8932c68a4fb2 752 extras/binary-aarch64/Packages
  0bf5c5045b292a1f651f69e43c92cad9 596 extras/binary-aarch64/Packages.xz
- 9ece22768a61f65dc66f7d8df90b5995 120 extras/Contents-aarch64.xz
  e1145c51fb683a4c8ba87e7c1e1528a3 97 extras/Contents-aarch64
+ 9ece22768a61f65dc66f7d8df90b5995 120 extras/Contents-aarch64.xz
 SHA1:
  2ec1cddc2186a973c2e91d145509ddb4b202b3da 752 extras/binary-aarch64/Packages
  64ab62eba5f6035ae80c6bf11be71e2fe645acea 596 extras/binary-aarch64/Packages.xz
- b76e51b0212587b66d05e6d5e020656e0430ba10 120 extras/Contents-aarch64.xz
  65c8294c5049f60fd89878231c5fb3503d99f67d 97 extras/Contents-aarch64
+ b76e51b0212587b66d05e6d5e020656e0430ba10 120 extras/Contents-aarch64.xz
 SHA256:
  89d21205df618b5c3ffd65077100b8bcd6199e534863fdecf7834fafe96b0282 752 extras/binary-aarch64/Packages
  9255d5b52e6a03276b1b141b8c0556112f3fc95caadf083bff92cf88fbae410c 596 extras/binary-aarch64/Packages.xz
- 0a34169447ddefc9be249a2931ac6378493a01638db5ba112047374cc453c2f9 120 extras/Contents-aarch64.xz
  06fe6404625e5bdd6873b1d49ac2a11c155dc3344e6dfce7c0d429c9e701493e 97 extras/Contents-aarch64
+ 0a34169447ddefc9be249a2931ac6378493a01638db5ba112047374cc453c2f9 120 extras/Contents-aarch64.xz
 SHA512:
  165819e139f92563a8f55e08814130f35d5b8a0940848a081f88cbff99f8993e65951d48e81915f28db255ca15c9189f4fd1b323d382204cfd303d603b3b8e47 752 extras/binary-aarch64/Packages
  e52bbb7d15cca3fa6371dea5c018c99844395784d89ee3b0f1e6e4ce2e4f5508cc35f6b88143d4f7f696c58def6a6cfe03bf536e6d806fb9c0ec7fd530c1ba77 596 extras/binary-aarch64/Packages.xz
- 16ca8f208b9b8c5ca6cbce2d7cc3e04d7124cfa67eb669d051195f00b919b6f146f45396bd8446fc52c45ebd38383852e809db9849a1c59d2428eb16a38ef1c3 120 extras/Contents-aarch64.xz
  c438db6ca2421120f02e794af6ad73aacd884ce4270c739a0be4b0144d4d28a558443e9d3fb5c0a8c27e1b1eb93cba2a808b36b700cefcc18e2ee796d74aba21 97 extras/Contents-aarch64
+ 16ca8f208b9b8c5ca6cbce2d7cc3e04d7124cfa67eb669d051195f00b919b6f146f45396bd8446fc52c45ebd38383852e809db9849a1c59d2428eb16a38ef1c3 120 extras/Contents-aarch64.xz
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYIAB0WIQQPNQlCCa/OMr1P+aKmfr7WY2zdxQUCYSPo0QAKCRCmfr7WY2zd
-xbTkAP9gQC65gqPXKygc1P72IF1HdKiX+pj6Rja8OcyB+JqXkgD/f++7pvO4ePJk
-QIfkfS2RhlYR+k8EFm3Agf6FOYpJdwg=
-=F6eN
+iHUEARYIAB0WIQQPNQlCCa/OMr1P+aKmfr7WY2zdxQUCYSPsqwAKCRCmfr7WY2zd
+xVmTAQD2A9VOQjfZTltDqWsUefbjlm7reec7kVpVsiVIS5DHGQEAoGFObOGAy4OH
+UqyLrwAwytrVW5NwJHJbJ4q1nkqdVgA=
+=P8EF
 -----END PGP SIGNATURE-----
