@@ -6,7 +6,7 @@ Version: 1
 Architectures: aarch64
 Description: termux repository
 Suite: termux
-Date: Mon, 23 Aug 2021 20:21:41 UTC
+Date: Mon, 23 Aug 2021 20:22:10 UTC
 MD5Sum:
  fa8e5a9ee39a4401331e8932c68a4fb2 752 extras/binary-aarch64/Packages
  0bf5c5045b292a1f651f69e43c92cad9 596 extras/binary-aarch64/Packages.xz
@@ -29,8 +29,8 @@ SHA512:
  c438db6ca2421120f02e794af6ad73aacd884ce4270c739a0be4b0144d4d28a558443e9d3fb5c0a8c27e1b1eb93cba2a808b36b700cefcc18e2ee796d74aba21 97 extras/Contents-aarch64
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYIAB0WIQQPNQlCCa/OMr1P+aKmfr7WY2zdxQUCYSQDVQAKCRCmfr7WY2zd
-xTODAP9urgr1XpFzDObKn+pf5Fd6EJBNeKZR2/KPmO10jzGhlQEA/J2WKW4qVwsM
-FzJe6FNy6W9/OoPUOk5nE2UZ95RxQwM=
-=8VJm
+iHUEARYIAB0WIQQPNQlCCa/OMr1P+aKmfr7WY2zdxQUCYSQDcgAKCRCmfr7WY2zd
+xT6RAQCpcV3TFbObV9kyh43xUC1+LNlNq0XBX0++xtTfTeFvAwEA9WX6z3dd2YXc
+tBPHVuuVzT+05BzgR0e5Mxs0LxzEUQs=
+=Ngjp
 -----END PGP SIGNATURE-----
