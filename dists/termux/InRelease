@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 Codename: termux
 Version: 1
 Architectures: aarch64
@@ -24,3 +27,10 @@ SHA512:
  e52bbb7d15cca3fa6371dea5c018c99844395784d89ee3b0f1e6e4ce2e4f5508cc35f6b88143d4f7f696c58def6a6cfe03bf536e6d806fb9c0ec7fd530c1ba77 596 extras/binary-aarch64/Packages.xz
  16ca8f208b9b8c5ca6cbce2d7cc3e04d7124cfa67eb669d051195f00b919b6f146f45396bd8446fc52c45ebd38383852e809db9849a1c59d2428eb16a38ef1c3 120 extras/Contents-aarch64.xz
  c438db6ca2421120f02e794af6ad73aacd884ce4270c739a0be4b0144d4d28a558443e9d3fb5c0a8c27e1b1eb93cba2a808b36b700cefcc18e2ee796d74aba21 97 extras/Contents-aarch64
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYIAB0WIQQPNQlCCa/OMr1P+aKmfr7WY2zdxQUCYSPo0QAKCRCmfr7WY2zd
+xbTkAP9gQC65gqPXKygc1P72IF1HdKiX+pj6Rja8OcyB+JqXkgD/f++7pvO4ePJk
+QIfkfS2RhlYR+k8EFm3Agf6FOYpJdwg=
+=F6eN
+-----END PGP SIGNATURE-----
