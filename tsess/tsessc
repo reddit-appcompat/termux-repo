@@ -1,0 +1,116 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+
+
+# this script has to be executed in the shell
+# with source
+
+help() {
+  cat <<"EOH"
+Usage: source tsessc [options]
+Sets up the connection to the session daemon in this shell.
+  
+  --help, -h     Displays this help.
+  
+  --reorder, -r  See the reorder option for tsessd.
+EOH
+  exit 0
+}
+
+
+
+
+opts="$(getopt -o 'rh' -l 'reorder,help' -- "$@")"
+eval set -- "$opts"
+while [ $# -gt 0 ] ; do
+ case "$1" in
+    (--reorder|-r) reorder=1; shift;;
+    (--help|-h) help;;
+    (--) shift;;
+    (-*) echo "unknown option: $1"; exit 1;;
+    (*) break;;
+  esac
+done
+unset help
+
+tsess_reorder="$reorder"
+
+
+
+# set history directory
+tsess_dir=~/.tsessions
+if [ "$2" ] ; then
+  tsess_dir="$2"
+fi
+
+mkdir "$tsess_dir" >/dev/null 2>&1
+
+# test if the server is started
+# and start when necessary
+nc -N -U "$tsess_dir".sock </dev/null >/dev/null 2>&1
+if [ "$?" != "0" ] ; then
+  if [ "$reorder" ]; then
+    args="--reorder"
+  fi
+  echo "starting session server"
+  nohup tsessd $args "$2" >/dev/null 2>&1 &
+  disown
+  unset args
+  tsessd_started=true
+  sleep 1
+fi
+
+
+# get the session number
+tsess="$(echo 'newsess' | timeout 0.2s nc -U ${tsess_dir}.sock)"
+
+# set the session name
+echo "session $tsess"
+echo -n -e "\e]0;session ${tsess}\a"
+
+# set the history
+export HISTFILE="$tsess_dir/hist$tsess"
+history -c
+history -r
+
+tsess_logout() {
+  echo "exit $tsess" | nc -N -U "$tsess_dir".sock
+}
+
+
+tsess_check() {
+  local s="$(echo "check $tsess" | timeout 0.1s nc -U "$tsess_dir".sock)"
+  if [ "$s" ]; then
+    echo "session changed from $tsess to $s"
+    tsess="$s"
+    echo -n -e "\e]0;session ${tsess}\a"
+    history -a
+    export HISTFILE="$tsess_dir/hist$tsess"
+    history -c
+    history -r
+    if [ "$(type -t tsess_changed)" = "function" ]; then
+      tsess_changed
+    fi
+  fi
+}
+
+if [ "$reorder" ]; then
+  PROMPT_COMMAND="$PROMPT_COMMAND tsess_check;"
+fi
+
+
+unset reorder
+
+
+tsess_restart() {
+  local args=
+  if [ "$tsess_reorder" ]; then
+    args="--reorder"
+  fi
+  echo "restarting session server"
+  nohup tsessd --log $args "$2" >/dev/null 2>&1 &
+  disown
+}
+
+
+

@@ -1,10 +1,11 @@
 {
   "name": "termux-user-fix",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Fixes the displayed user and group name. To use you have to put the library path into the LD_PRELOAD environment variable. The best way to do this is to put 'export LD_PRELOAD=\"/data/data/com.termux/files/usr/lib/libfixuser.so:$LD_PRELOAD\"' in your .bash_profile or .bashrc.",
   "arch": "aarch64",
   "depends": [],
   "files": {
-    "fixuser.so": "lib/libfixuser.so"
+    "fixuser.so": "lib/libfixuser.so",
+    "termux-user-fix.7.gz": "share/man/man7/termux-user-fix.7.gz"
   }
 }

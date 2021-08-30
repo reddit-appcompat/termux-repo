@@ -1,0 +1,28 @@
+.Dd $Mdocdate$
+.Dt TSESSD(1)
+.Sh tsessd
+.Nm tsessd
+.Nd Starts the session daemon in the current shell.
+.Sh SYNOPSIS
+.Nm tsessd
+.Op OPTIONS
+.Op socket location
+.Sh DESCRIPTION
+.Nm tsessd
+manages termux sessions. See
+.Nm tsessc
+for more information.
+
+.Ss OPTIONS
+.Bl -tag -width Ds
+.It -h, --help
+Displays the help.
+.It -l, --log
+Writes a log file to the socket location .log.
+.It -r, --reorder
+Reorders the sessions when needed. See
+.Nm tsessc
+for more information.
+.EL
+
+

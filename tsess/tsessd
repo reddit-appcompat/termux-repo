@@ -1,0 +1,143 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+
+help() {
+  cat <<"EOH"
+Usage: tsessd [options] [socket location]
+Runs the termux session daemon in the current shell.
+The default socket location is ~/.tsessions.sock.
+  
+  --help, -h     Display this help
+  
+  --restart, -r  Exit another instance of the daemon before starting.
+  
+  --exit         Just exit another instance of the daemon and return.
+  
+  --log, -l      Also write a log file.
+  
+  --reorder      When a session is closed and there are sessions with higher numbers open, renumber them so they keep matching the termux session number. This takes place when the next prompt is displayed in the session. tsessc als need this argument for it to work. 
+EOH
+  exit 0
+}
+
+
+
+opts="$(getopt -o 'rlh' -l 'restart,log,reorder,exit,help' -- "$@")"
+eval set -- "$opts"
+while [ $# -gt 0 ] ; do
+ case "$1" in
+    (--restart|-r) restart=1; shift;;
+    (--log|-l) logging=1; shift;;
+    (--reorder) reorder=1; shift;;
+    (--exit) ex=1; shift;;
+    (--help|-h) help;;
+    (--) shift;;
+    (-*) echo "unknown option: $1"; exit 1;;
+    (*) break;;
+  esac
+done
+
+
+
+if [ "$logging" ]; then
+  rm "$sock".log
+fi
+
+log() {
+  if [ "$logging" ]; then
+    echo "$(date +"%d.%m: %H:%M:%S:")" "$@" >> "$sock".log
+  fi
+}
+
+# set socket location
+sock=~/.tsessions.sock
+if [ "$2" ] ; then
+  sock="$2".sock
+fi
+
+log "socket: $sock"
+
+# test if the server is started
+nc -N -U "$sock" </dev/null >/dev/null 2>&1
+if [ "$?" = "0" ] ; then
+  if [ "$restart" ] || [ "$ex" ] ; then
+    echo "restart" | nc -N -U "$sock" >/dev/null 2>&1
+  else
+    echo "already running" >&2
+    exit 1
+  fi
+fi
+
+if [ "$ex" ]; then
+  exit
+fi
+
+coproc nc (nc -k -l -U "$sock")
+exec 3>&${nc[1]}
+while read -r -u ${nc[0]} t ; do
+  set -- $t
+  if [ "$1" = "newsess" ] ; then
+    s=''
+    for i in ${!sess[*]} ; do
+      if [ -z "${sess[$i]}" ] ; then
+        for a in ${newsess[*]}; do
+          if [ "$a" = "$i" ]; then
+            continue 2
+          fi
+        done
+        s=$i
+        break
+      else
+        if [ "$reorder" ] && [ "${newsess[$i]}" ]; then
+          s=$i
+          break
+        fi
+      fi
+    done
+    if [ -z "$s" ] ; then
+      s=${#sess[*]}
+    fi
+    sess[$s]=1
+    echo "$(($s + 1))" >&3
+    log "new session: $s"
+    continue
+  fi
+  if [ "$1" = "restart" ]; then
+    log "exit"
+    kill $nc_PID
+    exit
+  fi
+  if [ "$1" = "exit" ] && [ "$2" ] ; then
+    sess["$(($2 - 1))"]=''
+    exited="$(($2 - 1))"
+    log "exiting session: $2"
+    if [ "$reorder" ]; then
+      for i in ${!sess[*]} ; do
+        if [ "${newsess[$i]}" -gt "$exited" ]; then
+          newsess[$i]=$((${newsess[$i]} - 1))
+          continue
+        fi
+        if [ "${sess[$i]}" ] && [ $i -gt $exited ] && [ -z "${newsess[$i]}" ] ; then
+          newsess[$i]="$(($i - 1))"
+          log "session $i changed"
+        fi
+      done
+      
+      
+    fi
+    continue
+  fi
+  if [ "$1" = "check" ] && [ "$2" ] ; then
+    s="$(($2 - 1))"
+    if [ "${newsess[$s]}" ]; then
+      echo "$((${newsess[$s]} + 1))" >&3
+      sess[${newsess[$s]}]=1      
+      newsess[$s]=''
+      sess[$s]=''
+    fi
+    continue
+  fi
+  
+  
+  
+done

@@ -1,0 +1,13 @@
+{
+  "name": "tsess",
+  "version": "1.0",
+  "description": "",
+  "arch": "all",
+  "depends": ["netcat-openbsd"],
+  "files": {
+    "tsessc": "bin/tsessc",
+    "tsessd": "bin/tsessd",
+    "tsessc.1.gz": "share/man/man1/tsessc.1.gz",
+    "tsessd.1.gz": "share/man/man1/tsessd.1.gz"
+  }
+}
