@@ -1,0 +1,4 @@
+data/data/com.termux/files/usr/bin/tsessc                                        tsess
+data/data/com.termux/files/usr/bin/tsessd                                        tsess
+data/data/com.termux/files/usr/share/man/man1/tsessc.1.gz                        tsess
+data/data/com.termux/files/usr/share/man/man1/tsessd.1.gz                        tsess

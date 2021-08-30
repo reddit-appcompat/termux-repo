@@ -1,1 +1,3 @@
 data/data/com.termux/files/usr/lib/libfixuser.so                                 termux-user-fix
+data/data/com.termux/files/usr/lib/libfixuser.so                                 termux-user-fix
+data/data/com.termux/files/usr/share/man/man7/termux-user-fix.7.gz               termux-user-fix

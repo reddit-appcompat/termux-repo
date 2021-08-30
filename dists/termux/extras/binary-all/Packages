@@ -1,0 +1,13 @@
+Package: tsess
+Version: 1.0
+Architecture: all
+Maintainer: None
+Description: 
+Depends: netcat-openbsd
+Filename: dists/termux/extras/binary-all/tsess_1.0_all.deb
+Size: 3444
+MD5Sum: 7230d93f13b5d59bafbfa8a0900e30d9
+SHA1: 9c64b06cd1bc8d965183e7a4f7bbd8403742a728
+SHA256: c893f5b7073c19daa1c73549a1e08136a997a8763cc3383353242ecfc0e4e443
+SHA512: 9327892064d43ecfeaf78c496cc03ded8fcd250b07da8a69db30bf2eddf805033050b21ad31a184031a3bfd5788c94aa299efdbc74f05dce6a49c05112b879ff
+
