@@ -1,50 +1,12 @@
 .Dd $Mdocdate$
-.Dt TSESSC(1)
-.Sh tsessc
-.Nm tsessc
-.Nd Connects to the session daemon and sets the history file.
+.Dt TERMUX-USER-FIX(7)
+.Sh termux-user-fix
+.Nm termux-user-fix
+.Nd Fixes the displayed user and group names.
 .Sh SYNOPSIS
-.Nm source tsessc
-.Op OPTIONS
-.Op history directory
+.Nm export LD_PRELOAD="$LD_PRELOAD:$PREFIX/lib/libfixuser.so"
 .Sh DESCRIPTION
-.Nm tsessc
-connects to the session daemon and sets the history to the history of the session number.
+.Nm termux-user-fix
+Fixes the displayed user and group names by intercepting the library calls that get the names.
 
-That means all termux sessions now get their own history.
-
-It tries to connect to the socket <history directory>.sock.
-
-All session history files are stored in the history directory, the default location is ~/.tsessions.
-
-If it can't connect to the session daemon, it ts started automatically.
-
-The session number is accessible in the shell as the variable tsess.
-
-If the session daemon had to be startet the tsessd_started variable will be set to true.
-
-You can use this to determine if the termux application was killed by the system and perform special cleanup actions if you need to.
-
-
-To use you should put source tsessc in your .bashrc.
-
-.Ss Reordering
-
-If you have 3 termux sessions open and close session 2, session 3 gets renamed by termux to session 2, but it still has the command history of session 3.
-
-You can change this by using the --reorder option.
-
-When the reorder option is used, when a session is closed all higher number sessions will be renamed and get the right history when the next prompt is displayed. 
-
-
-.Ss OPTIONS
-.Bl -tag -width Ds
-.It -h, --help
-Displays the help.
-.It -r, --reorder
-Enables session reordering. See the 
-.Nm Reordering
-section.
-.EL
-
-
+To use, put the export statement above in your .bashrc.
